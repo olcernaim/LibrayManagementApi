@@ -9,20 +9,21 @@ namespace LibrayManagementApi.DataAccess.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
-        void Add(T objModel);
-        void AddRange(IEnumerable<T> objModel);
-        T? GetId(int id);
-        Task<T?> GetIdAsync(int id);
-        T? Get(Expression<Func<T, bool>> predicate);
-        Task<T?> GetAsync(Expression<Func<T, bool>> predicate);
-        IEnumerable<T> GetList(Expression<Func<T, bool>> predicate);
-        Task<IEnumerable<T>> GetListAsync(Expression<Func<T, bool>> predicate);
         IEnumerable<T> GetAll();
+        T GetById(object id);
+        bool Insert(T obj);
+        bool Update(T obj);
+        bool Delete(object id);
+        bool InsertMany(List<T> objList);
+        void DeleteAll();
+        Task<bool> InsertManyAsync(List<T> obj);
         Task<IEnumerable<T>> GetAllAsync();
-        int Count();
-        Task<int> CountAsync();
-        void Update(T objModel);
-        void Remove(T objModel);
-        void Dispose();
+        Task<T> GetByIdAsync(int id);
+        Task<T> InsertAsync(T entity);
+        Task<T> UpdateAsync(T entity);
+        Task<int> DeleteAsync(int id);
+        Task<int> AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
+        Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate);
+        Task<int> DeleteRangeAsync(IEnumerable<T> entities);
     }
 }

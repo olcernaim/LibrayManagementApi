@@ -10,11 +10,21 @@ namespace LibrayManagementApi.Data
 {
     public class LibManagementContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public LibManagementContext(DbContextOptions<LibManagementContext> options) : base(options)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Test;Trusted_Connection = True");
+
         }
 
-        DbSet<BOOK> Books { get; set; }
+        DbSet<BOOK> BOOK { get; set; }
+        DbSet<AUTHOR> AUTHOR { get; set; }
+        DbSet<CATEGORY> CATEGORY { get; set; }
+        
+        //DbSet<BORROWING> BORROWING { get; set; }
+        //DbSet<CATEGORY> CATEGORY { get; set; }
+        //DbSet<PUBLISHER> PUBLISHER { get; set; }
+        //DbSet<PUNISHMENT> PUNISHMENT { get; set; }
+        //DbSet<USERS> USERS { get; set; }
     }
 }
