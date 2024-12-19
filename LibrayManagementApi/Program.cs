@@ -22,7 +22,6 @@ namespace LibrayManagementApi
             builder.Services.AddDbContext<LibManagementContext>(p => p.UseSqlServer(builder.Configuration.GetSection("Settings:ConnectionString")?.Value));
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-
             //builder.Services.AddDbContext<LibManagementContext>(options => options.UseSqlServer(builder.Configuration.GetSection("Settings:ConnectionString")?.Value));
             //builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 

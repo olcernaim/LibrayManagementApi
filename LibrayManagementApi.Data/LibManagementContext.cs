@@ -20,7 +20,9 @@ namespace LibrayManagementApi.Data
         DbSet<BOOK> BOOK { get; set; }
         DbSet<AUTHOR> AUTHOR { get; set; }
         DbSet<CATEGORY> CATEGORY { get; set; }
-        
+        DbSet<VW_BOOK> VW_BOOK { get; set; }
+        DbSet<USERS> USERS { get; set; }
+
         //DbSet<BORROWING> BORROWING { get; set; }
         //DbSet<CATEGORY> CATEGORY { get; set; }
         //DbSet<PUBLISHER> PUBLISHER { get; set; }
